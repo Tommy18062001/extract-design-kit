@@ -1,11 +1,12 @@
 {
   "name": "extract-design-kit",
   "version": "0.1.0",
-  "description": "Install the Codex skill that extracts a reusable design kit from a GitHub repository or website.",
+  "description": "Install the Codex skill that extracts a reusable design kit from an open-source GitHub repository.",
   "license": "MIT",
   "type": "commonjs",
-  "repository": { "type": "git", "url": "git+https://github.com/REPLACE_WITH_YOUR_ACCOUNT/extract-design-kit.git" },
-  "bugs": { "url": "https://github.com/REPLACE_WITH_YOUR_ACCOUNT/extract-design-kit/issues" },
+  "repository": { "type": "git", "url": "git+https://github.com/Tommy18062001/extract-design-kit.git" },
+  "bugs": { "url": "https://github.com/Tommy18062001/extract-design-kit/issues" },
+  "homepage": "https://github.com/Tommy18062001/extract-design-kit#readme",
   "bin": { "extract-design-kit": "scripts/install.js" },
   "files": ["extract-design-kit", "scripts/install.js", "README.md", "LICENSE"],
   "scripts": {
