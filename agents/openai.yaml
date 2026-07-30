@@ -1,4 +1,4 @@
 interface:
   display_name: Extract Design Kit
-  short_description: Extract a reusable design kit from a GitHub repository or website.
-  default_prompt: Create a reusable design kit from this repository or website.
+  short_description: Extract a reusable design kit from a GitHub repository, live website, or both.
+  default_prompt: Create a reusable design kit from this repository and/or live website.

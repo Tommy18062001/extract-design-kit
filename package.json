@@ -1,7 +1,7 @@
 {
   "name": "extract-design-kit",
-  "version": "0.1.3",
-  "description": "Install the Codex skill that extracts a reusable design kit from an open-source GitHub repository.",
+  "version": "0.2.0",
+  "description": "Install the Codex skill that extracts a reusable design kit from a GitHub repository, a live website, or both.",
   "license": "MIT",
   "type": "commonjs",
   "repository": {
@@ -30,7 +30,9 @@
     "skill",
     "design-system",
     "design-tokens",
-    "github"
+    "github",
+    "live-website",
+    "css"
   ],
   "engines": {
     "node": ">=18"
