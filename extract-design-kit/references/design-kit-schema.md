@@ -2,19 +2,33 @@
 
 ## `design-kit/README.md`
 
-State the kit's purpose, source repository and commit, extraction date, verification status, and the rule that future UI must consume its tokens and component patterns. Include a short CSS import snippet.
+State the kit's purpose, extraction mode (`repository` | `live-site` | `hybrid`), source repository and/or live URL, commit when applicable, extraction date, verification status, and the rule that future UI must consume its tokens and component patterns. Include a short CSS import snippet.
 
 ## `design-kit/SOURCE.md`
 
-Record repository URL, commit or release inspected, license, attribution note, and material deliberately not copied. Do not include a live-site URL in v1.
+Record:
+
+- Extraction mode
+- Repository URL and commit or release inspected when used
+- Live URL(s) and pages inspected when used
+- License (or `unknown` / proprietary caveat for live-only sources)
+- Attribution note
+- Material deliberately not copied (logos, illustrations, markup, proprietary assets)
 
 ## `.extract-design-kit/raw.json`
 
-Keep the unedited evidence record. Each item must include `category`, `value`, `source_file`, `source_location` when available, `component_or_selector`, `state` when applicable, and `confidence`. Retain duplicates and source-specific names here.
+Keep the unedited evidence record. Include top-level `meta` with `mode`, `repository_url`, `live_urls`, and `inspected_at`.
+
+Each item must include `category`, `value`, `confidence`, and provenance:
+
+- Repository evidence: `source_file`, `source_location`, `component_or_selector`, `state` when applicable
+- Live-site evidence: `source_url`, `selector` when known, `source_location` (stylesheet URL or `computed-style` / `screenshot`), `viewport` when relevant, `state` when applicable
+
+Retain duplicates and source-specific names here.
 
 ## `.extract-design-kit/normalized.json`
 
-Map raw evidence to semantic tokens and component rules. Each entry must include `value`, `source_refs`, and `confidence`. Do not discard competing values: explain the normalization choice.
+Map raw evidence to semantic tokens and component rules. Each entry must include `value`, `source_refs`, and `confidence`. Do not discard competing values: explain the normalization choice. In hybrid mode, note when a live value overrode or merely verified a repo value.
 
 ## `design-kit/tokens.json`
 
@@ -40,18 +54,28 @@ Emit a semantic `:root` custom-property mirror of `tokens.json`, grouped by colo
 
 For each reusable primitive, include purpose, anatomy, variants, sizes, state matrix, token usage, responsive behavior, accessibility behavior, and source evidence. Prioritize buttons, inputs, selects, cards, navigation, dialogs, tables, badges, loading, empty, and error states when present.
 
+For live-site-only inventories, document observable appearance and behavior; mark implementation API and unobserved a11y details as unknown.
+
 ## `design-kit/DESIGN_SYSTEM.md`
 
 Include the visual character, color/contrast strategy, typography hierarchy, density and spacing rhythm, layout composition, shape and elevation language, responsive rules, motion principles, component-composition guidance, concise do/don't rules, and every significant unknown or inference.
 
 ## `design-kit/evidence.md`
 
-Provide a compact traceability table: design decision, normalized token or rule, raw evidence reference, source file, and confidence. This is the first file a future agent should use when it questions a rule.
+Provide a compact traceability table: design decision, normalized token or rule, raw evidence reference, source file or live URL/selector, and confidence. This is the first file a future agent should use when it questions a rule.
 
 ## `.extract-design-kit/verification.md`
 
-Record whether local rendering was possible, exact viewport sizes tested, source screens or component states compared, material differences found, corrections made, and remaining limitations. If the source was not runnable, state why without treating that as a failure.
+Record:
+
+- Whether repository local rendering and/or live-site capture was possible
+- Exact viewport sizes tested
+- Pages or component states compared
+- Material differences found and corrections made
+- Remaining limitations (auth walls, missing browser tooling, no repo, etc.)
+
+Inability to verify is a limitation, not a failure.
 
 ## `design-kit/examples/`
 
-Include only appropriately licensed source screenshots, original comparison screenshots, or annotated notes. If no visual verification was possible, add `README.md` explaining the limitation.
+Include only appropriately licensed source screenshots, live-site reference screenshots when permitted, original comparison screenshots, or annotated notes. If no visual reference was captured, add `README.md` explaining the limitation.

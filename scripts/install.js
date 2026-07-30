@@ -4,7 +4,7 @@ const os = require("os");
 const path = require("path");
 
 function usage() {
-  console.log("\nExtract Design Kit installer\n\nUsage:\n  npx --yes extract-design-kit@latest\n  extract-design-kit --skills-dir ~/.codex/skills\n\nOptions:\n  --skills-dir PATH  Install into a custom Codex skills directory\n  --force            Replace an existing installed copy\n  --help             Show this help\n");
+  console.log("\nExtract Design Kit installer\n\nUsage:\n  npx --yes extract-design-kit@latest\n  extract-design-kit --skills-dir ~/.codex/skills\n\nAfter install, pass a GitHub repository URL, a live website URL, or both.\n\nOptions:\n  --skills-dir PATH  Install into a custom Codex skills directory\n  --force            Replace an existing installed copy\n  --help             Show this help\n");
 }
 function expandHome(value) {
   if (value === "~") return os.homedir();
@@ -49,7 +49,8 @@ function main() {
   if (fs.existsSync(destination)) fs.rmSync(destination, { recursive: true, force: true });
   copyDirectory(source, destination);
   console.log("Installed Extract Design Kit for Codex.");
-  console.log("Restart Codex, then run:");
+  console.log("Restart Codex, then run with a repository, live website, or both:");
   console.log("  Use $extract-design-kit to create a reusable design kit from this GitHub repository: [URL]");
+  console.log("  Use $extract-design-kit to create a reusable design kit from this live website: [URL]");
 }
 try { main(); } catch (error) { console.error(`Error: ${error.message}`); process.exit(1); }
