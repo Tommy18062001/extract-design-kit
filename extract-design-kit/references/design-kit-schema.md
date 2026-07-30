@@ -12,12 +12,13 @@ Record:
 - Repository URL and commit or release inspected when used
 - Live URL(s) and pages inspected when used
 - License (or `unknown` / proprietary caveat for live-only sources)
+- **License/terms decision**: full kit | high-level summary only | stopped — with brief rationale
 - Attribution note
-- Material deliberately not copied (logos, illustrations, markup, proprietary assets)
+- Material deliberately not copied (logos, illustrations, markup, proprietary assets, trade dress)
 
 ## `.extract-design-kit/raw.json`
 
-Keep the unedited evidence record. Include top-level `meta` with `mode`, `repository_url`, `live_urls`, and `inspected_at`.
+Keep a design-evidence audit trail (derived tokens, selectors, style values). Include top-level `meta` with `mode`, `repository_url`, `live_urls`, and `inspected_at`. Do not dump full HTML, page copy, or personal data.
 
 Each item must include `category`, `value`, `confidence`, and provenance:
 
@@ -78,4 +79,4 @@ Inability to verify is a limitation, not a failure.
 
 ## `design-kit/examples/`
 
-Include only appropriately licensed source screenshots, live-site reference screenshots when permitted, original comparison screenshots, or annotated notes. If no visual reference was captured, add `README.md` explaining the limitation.
+Default to **no screenshot files**. Prefer annotated notes or hashes in `verification.md`. Include screenshots only when the user explicitly permits them, after a sensitive-data check, and when license/terms allow. If nothing visual is stored, add `examples/README.md` explaining the limitation.
